@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery/test6.html</title>
+<script src="../script/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// id="btn" 버튼 클릭시 보이게
+		$('#btn').click(function(){
+			$.getJSON('test6.jsp',function(rdata){
+				$.each(rdata,function(index,item){
+					$('table').append('<tr><td>'+item.id+'</td><td>'+item.pass+'</td><td>'+item.name+'</td><td>'+item.date+'</td></tr>');
+				});
+			})
+		});
+		
+		
+	});
+	</script>
+</head>
+<body>
+<input type="button" value="회원정보조회" id="btn">
+<table border="1">
+<tr><td>아이디</td><td>비밀번호</td><td>이름</td><td>가입날짜</td></tr>
+</table>
+</body>
+</html>
